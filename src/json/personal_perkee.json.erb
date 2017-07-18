@@ -1,0 +1,71 @@
+{
+    "title": "Personal rules @perkee following some from http://stevelosh.com/blog/2012/10/a-modern-space-cadet/",
+    "rules": [
+        {
+            "description": "Change left_control key to command+control+option+shift. (Post Esc when pressed alone)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_control", [], ["any"]) %>,
+                    "to": <%= to([["left_shift", ["left_command", "left_control", "left_option"]]]) %>,
+                    "to_if_alone": <%= to([["escape"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Change caps_lock to control if pressed with other keys, to quote if pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "to_if_alone": <%= to([["quote", ["left_shift"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Change left_shift to left paren ( if pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_shift", [], ["any"]) %>,
+                    "to": <%= to([["left_shift"]]) %>,
+                    "to_if_alone": <%= to([["9", ["right_shift"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Change right_shift to right paren ) if pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_shift", [], ["any"]) %>,
+                    "to": <%= to([["right_shift"]]) %>,
+                    "to_if_alone": <%= to([["0", ["left_shift"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Change left_command to left brace { if pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": <%= to([["left_command"]]) %>,
+                    "to_if_alone": <%= to([["open_bracket", ["left_shift"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Change right_command to right brace } if pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["right_command"]]) %>,
+                    "to_if_alone": <%= to([["close_bracket", ["left_shift"]]]) %>
+                }
+            ]
+        }
+    ]
+}
